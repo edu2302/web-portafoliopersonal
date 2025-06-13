@@ -354,7 +354,7 @@
       </ul>
     </div>
 
-    <!-- Contenedor para la descripción del proyecto -->
+    <!-- Contenedor para la descripción del proyecto 1 -->
 <div class="project-description-container" id="project-description-container">
   <!-- Descripción del proyecto 1 -->
   <div class="project-description" id="project-1-description">
@@ -378,7 +378,24 @@
     </p>
     <button class="close-description-btn" onclick="closeDescription()">Cerrar</button>
   </div>
+
+    <!-- Descripción del proyecto 2 -->
+    <div class="project-description" id="project-2-description">
+      <h3>Predicción Obesidad</h3>
+      <p>En este proyecto para el curso de Investigación Aplicada de la UNFV, se creó un modelo predictivo
+        para poder predecir la obesidad en universitarios, se utilizó el dataset de UCI Machine Learning
+        que contenia datos de habitos alimenticios de personas de Perú y Colombia  <br>
+          <b>Tecnologías utilizadas:
+          <br> Python</b>
+          <img src="./assets/images/project-2-description.png" alt="finance">
+      </p>
+      <button class="close-description-btn" onclick="closeDescription()">Cerrar</button>
+    </div>
+
 </div>
+
+
+
 
 <!-- Lista de proyectos -->
 <ul class="project-list" id="projectList">
@@ -394,6 +411,17 @@
     <p class="project-category">Business Intelligence</p>
   </li>
   <!-- Otros proyectos se agregan de la misma manera -->
+     <!-- Proyecto 2 -->
+  <li class="project-item active" data-filter-item data-category="web development" data-id="project-2" onclick="showProjectDetails('project-2')">
+    <figure class="project-img">
+      <div class="project-item-icon-box">
+        <ion-icon name="eye-outline"></ion-icon>
+      </div>
+      <img src="./assets/images/project-2.png" alt="finance" loading="lazy">
+    </figure>
+    <h3 class="project-title">Modelo Predictivo</h3>
+    <p class="project-category">Machine Learning</p>
+  </li>
 </ul>
 
 
