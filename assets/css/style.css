@@ -1755,6 +1755,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .project-list, .blog-posts-list { grid-template-columns: 1fr 1fr; }
 
+    .project-description h3,
+  .project-description p {
+    color: var(--white-2) !important;
+  }
 
 
   /**
@@ -1778,6 +1782,8 @@ textarea.form-input::-webkit-resizer { display: none; }
  * responsive larger than 1024px screen
  */
 
+
+ 
 @media (min-width: 1024px) {
 
   /**
@@ -1867,101 +1873,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .clients-item { min-width: calc(25% - 38px); }
 
-
-
-/* Lista de proyectos */
-.project-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.project-item {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.project-item:hover {
-  transform: scale(1.05);
-}
-
-.project-img img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.project-title {
-  font-size: 1.2em;
-  margin-top: 10px;
-}
-
-.project-category {
-  font-size: 0.9em;
-  color: #777;
-}
-
-.project-description img {
-  width: 100%;  /* Hace que la imagen ocupe el 100% del ancho del contenedor */
-  height: auto; /* Mantiene la proporción de la imagen */
-  max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-  border-radius: 10px; /* Si quieres redondear las esquinas de la imagen */
-  box-sizing: border-box; /* Asegura que los márgenes o bordes no afecten el tamaño */
-}
-
-/* Descripción del proyecto */
-.project-description-container {
-  display: none; /* Ocultamos el contenedor de las descripciones al inicio */
-  margin-top: 20px;
-}
-
-.project-description {
-  display: none;
-  opacity: 0;
-  transform: scale(0.9);
-  background: var(--eerie-black-2);
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: var(--shadow-2);
-  margin-top: 20px;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.project-description.active {
-  display: block;
-  opacity: 1;
-  transform: scale(1);
-}
-
-.project-description h3 {
-  color: var(--white-2);
-  font-size: var(--fs-4);
-}
-
-.project-description p {
-  color: var(--light-gray);
-  font-size: var(--fs-6);
-}
-
-/* Ocultar la lista de proyectos cuando se muestra la descripción */
-#projectList.hidden {
-  visibility: hidden;
-}
-
-/* Estilo para el botón de cerrar */
-.close-description-btn {
-  background: var(--orange-yellow-crayola);
-  color: var(--smoky-black);
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.close-description-btn:hover {
-  background: var(--bittersweet-shimmer);
-}
 
   /**
    * BLOG
@@ -2094,4 +2005,137 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+.project-description {
+  color: var(--light-gray) !important;
+}
+
+/* Corrección para el texto negro en modo oscuro */
+.project-description {
+  color: var(--white-1);
+}
+
+/* Ajuste responsive para que la descripción no herede el fondo de otras partes */
+.project-description-container {
+  background-color: var(--eerie-black-1);
+}
+
+/* Ajuste responsive para imágenes en descripciones */
+.project-description img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-top: 20px;
+}
+
+/* Asegurar que los proyectos ocultos no se sigan renderizando */
+.project-item {
+  display: none;
+}
+.project-item.active {
+  display: block;
+}
+
+/* ----- ESTILOS DE PROYECTOS ADAPTATIVOS ----- */
+
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adaptativo */
+  gap: 20px;
+}
+
+.project-item {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: block; /* por defecto visible */
+}
+
+.project-item:hover {
+  transform: scale(1.05);
+}
+
+.project-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.project-title {
+  font-size: 1.2em;
+  margin-top: 10px;
+  color: var(--white-2);
+}
+
+.project-category {
+  font-size: 0.9em;
+  color: var(--light-gray-70);
+}
+
+/* Contenedor de descripción */
+.project-description-container {
+  display: none;
+  margin-top: 20px;
+  background-color: var(--eerie-black-1); /* Fondo oscuro */
+}
+
+/* Descripción de proyecto */
+.project-description {
+  display: none;
+  opacity: 0;
+  transform: scale(0.95);
+  background: var(--eerie-black-2);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: var(--shadow-2);
+  margin-top: 20px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  color: var(--white-1);
+}
+
+.project-description.active {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.project-description h3 {
+  color: var(--white-2);
+  font-size: var(--fs-4);
+}
+
+.project-description p {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+}
+
+/* Imágenes dentro de la descripción */
+.project-description img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* Ocultar lista si es necesario */
+#projectList.hidden {
+  visibility: hidden;
+}
+
+/* Botón cerrar */
+.close-description-btn {
+  background: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.close-description-btn:hover {
+  background: var(--bittersweet-shimmer);
 }

@@ -194,35 +194,34 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-// Función para mostrar los detalles del proyecto
+// Mostrar detalles de un proyecto
 function showProjectDetails(projectId) {
-  // Primero, ocultar todas las descripciones
+  // Ocultar todas las descripciones activas
   const allDescriptions = document.querySelectorAll('.project-description');
-  allDescriptions.forEach(description => {
-    description.classList.remove('active');
+  allDescriptions.forEach(desc => {
+    desc.classList.remove('active');
   });
 
-  // Luego, mostrar la descripción del proyecto seleccionado
-  const selectedProject = document.getElementById(`${projectId}-description`);
-  if (selectedProject) {
-    selectedProject.classList.add('active'); // Asegurarse de que se agrega correctamente la clase 'active'
+  // Mostrar solo la descripción del proyecto seleccionado
+  const selectedDescription = document.getElementById(`${projectId}-description`);
+  if (selectedDescription) {
+    selectedDescription.classList.add('active');
   }
 
-  // Ocultar la lista de proyectos mientras se muestra la descripción
+  // Ocultar lista de proyectos
   document.getElementById('projectList').classList.add('hidden');
 
-  // Mostrar el contenedor de descripciones
+  // Mostrar el contenedor de la descripción
   document.getElementById('project-description-container').style.display = 'block';
 }
 
-// Función para cerrar la descripción y mostrar nuevamente la lista de proyectos
+// Cerrar la descripción del proyecto
 function closeDescription() {
+  // Ocultar todas las descripciones
   const allDescriptions = document.querySelectorAll('.project-description');
-  allDescriptions.forEach(description => {
-    description.classList.remove('active');
-  });
+  allDescriptions.forEach(desc => desc.classList.remove('active'));
 
-  // Mostrar la lista de proyectos nuevamente
+  // Mostrar nuevamente la lista de proyectos
   document.getElementById('projectList').classList.remove('hidden');
 
   // Ocultar el contenedor de descripciones
